@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="description" content="SJPN TRUST POLYTECHNIC at Nidsoshi provides technical education with excellence.">
+    <meta name="keywords" content="SJPN TRUST POLYTECHNIC, College">
+    <meta name="author" content="Nandish Jabar">
+
+    <title>SJPN TRUST'S POLYTECHNIC NIDSOSHI</title>
+
+    <link rel="stylesheet" href="css/main_style.css">
+    <link rel="shortcut icon" href="image/favicon.jpg" type="image/png">
+</head>
+
+<body>
+
+    <section class="header">
+        <nav>
+            <a href="/"><img src="image/favicon.jpg" id="logo-img" alt="College Logo"></a>
+            <span id="user-name" class="user-name">Welcome, Guest</span>
+
+            <div class="nav-links" id="navLinks">
+                <span class="icon" onclick="hidemenu()">&#10005;</span>
+                <ul>
+                    <li><a href="index1.html">Home</a></li>
+                    <li><a href="admission_page.html">Admission</a></li>
+                    <li><a href="#course_call">Course</a></li>
+                    <li><a href="fees_page.html">Fees</a></li>
+                    <li><a href="contact_page.html">Contact</a></li>
+                    <li><a href="#" onclick="logoutUser()">Logout</a></li>
+                </ul>
+            </div>
+            <span class="icon" onclick="showmenu()">&#9776;</span>
+        </nav>
+
+        <div class="text-box">
+            <h1>SJPN TRUST POLYTECHNIC NIDASOSHI</h1>
+            <p>Providing one of the earliest forms of technical studies with excellence.</p>
+            <a class='hero-btn' href="admission_page.html">Admission Open</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 TEAM CHANAKYA. All Rights Reserved.</p>
+    </footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")); // Retrieve user object
+        let userNameElement = document.getElementById("user-name");
+
+        if (loggedInUser && loggedInUser.fullName) {
+            userNameElement.textContent = `Welcome, ${loggedInUser.fullName}`;
+        } else {
+            window.location.href = "login.html"; // Redirect to login if not logged in
+        }
+    });
+
+    function logoutUser() {
+        localStorage.removeItem("loggedInUser");
+        localStorage.setItem("isLoggedIn", "false");
+        window.location.href = "login.html"; // Redirect to login
+    }
+</script>
+
+
+</body>
+</html>
+	

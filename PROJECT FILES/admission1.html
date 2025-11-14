@@ -1,0 +1,182 @@
+<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admission Form - GGU</title>
+  
+  <link rel="shortcut icon" href="image/favicon.ico" type="image/svg+xml">
+  <link rel="stylesheet" href="css/admission_style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  
+  <style>
+    /* General Styling */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    /* Header and Navigation */
+    .header {
+      background-color: #222;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    .header nav ul li {
+      margin: 0 15px;
+    }
+
+    .header nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    /* Form Styling */
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .r_form_wrap {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      width: 400px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .title p {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .submit-btn {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      width: 100%;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .submit-btn:hover {
+      background-color: #0056b3;
+    }
+
+  </style>
+</head>
+<body>
+
+  <section class="header">
+    <nav>
+      <a href="index.html"><img src="image/logo.png" id="logo-img" alt="College Logo"></a>
+      <div class="nav-links" id="navLinks">
+        <span class="icon" onclick="hideMenu()">&#10005;</span>  
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Admission_page.html">Admission</a></li>
+          <li><a href="index.html#course_call">Course</a></li>
+          <li><a href="fees_page.html">Fees</a></li>
+          <li><a href="Contact_page.html">Contact</a></li>
+        </ul>
+      </div> 
+      <span class="icon" onclick="showMenu()">&#9776;</span>
+    </nav>
+  </section>
+
+  <div class="wrapper">
+    <div class="r_form_wrap">
+      <div class="title">
+        <p>Admission Form</p>
+      </div>
+
+      <form action="submit_form.php" method="POST">
+        <div class="form-group">
+          <label for="full-name">Full Name</label>
+          <input type="text" id="full-name" name="full_name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+
+     <div class="form-group">
+    <label for="course">Select Course</label>
+    <select id="course" name="course" required>
+        <option value="course">Select the course </option>
+        <option value="CS">Computer Science & Engineering</option>
+        <option value="EC">Electronics & Communication Engineering</option>
+        <option value="IC">Electronic Instrumentation & Control</option>
+        <option value="ME">Mechanical Engineering</option>
+        <option value="AT">Automobile Engineering</option>
+        <option value="MTT">Machine Tool Technology</option>
+        <option value="CE">Civil Engineering</option>
+    </select>
+</div>
+
+
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function showMenu() {
+      document.getElementById("navLinks").style.display = "block";
+    }
+
+    function hideMenu() {
+      document.getElementById("navLinks").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>

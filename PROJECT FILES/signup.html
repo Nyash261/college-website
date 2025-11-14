@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="signup-box">
+            <h1>Sign Up</h1>
+            <form id="signupForm">
+                <div class="input-box">
+                    <input type="text" name="fullname" placeholder="Full Name" required>
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="username" placeholder="Username" required>
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="email" name="email" placeholder="Email" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="password" placeholder="Password" required minlength="6">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="confirm_password" placeholder="Confirm Password" required minlength="6">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="phone_number" placeholder="Phone Number" required pattern="[0-9]{10}">
+                    <i class="fas fa-phone"></i>
+                </div>
+
+                <button type="submit" class="btn">Sign Up</button>
+                <p class="login-link">Already have an account? <a href="login.html">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- 📌 JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelector("#signupForm").addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent form submission
+
+                // Get input values
+                let fullName = document.querySelector("input[name='fullname']").value.trim();
+                let username = document.querySelector("input[name='username']").value.trim();
+                let email = document.querySelector("input[name='email']").value.trim();
+                let password = document.querySelector("input[name='password']").value;
+                let confirmPassword = document.querySelector("input[name='confirm_password']").value;
+                let phoneNumber = document.querySelector("input[name='phone_number']").value.trim();
+
+                // Check if passwords match
+                if (password !== confirmPassword) {
+                    alert("Passwords do not match!");
+                    return;
+                }
+
+                // Retrieve existing users or initialize an empty array
+                let users = JSON.parse(localStorage.getItem("users")) || [];
+
+                // Check if username already exists
+                let existingUser = users.find(user => user.username === username);
+                if (existingUser) {
+                    alert("Username already taken! Please choose another one.");
+                    return;
+                }
+
+                // Create new user object
+                let newUser = { fullName, username, email, password, phoneNumber };
+
+                // Add new user to users array
+                users.push(newUser);
+
+                // Save updated users array to Local Storage
+                localStorage.setItem("users", JSON.stringify(users));
+
+                alert("Sign-up successful! Redirecting to login page...");
+                window.location.href = "login.html"; // Redirect to login page
+            });
+        });
+    </script>
+
+</body>
+</html>
